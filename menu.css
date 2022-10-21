@@ -1,0 +1,145 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+
+:root {
+ font-size: 62.5%;
+ 
+  --coldarkopacity: rgba(0, 0, 0, 0.7);
+  --coldarkeropacity: rgba(0, 0, 0, 0.9);
+  --colmedium: #ffbe0a;
+  --collight: #c4bc7c;
+ 
+  --text-light: #fff;
+  --text-dark: #141418;
+ 
+  --text-bottom: 1.5rem;
+  --button-padding: 1rem 2rem;
+  --button-shadow: 0 0 1.5rem rgba(138, 129, 52, 0.7);
+}
+.menu__container{
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100vw;
+ height: 100vh;
+ z-index: 1;
+
+}
+.togglercheck{
+ position: absolute;
+ top: 5%;
+ left: 5%;
+ width: 6rem;
+ height: 6rem;
+ opacity: 0;
+ cursor: pointer;
+ z-index: 3; 
+}
+.menu__container__toggler{
+ position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  background:var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  
+}
+.menu__container__toggler>div{
+ position: absolute;
+  width: 60%;
+  height: 0.3rem;
+  border-radius: 0.15rem;
+  background: var(--collight);
+  transition: .4s;
+  
+ 
+}
+.menu__container__toggler>div:before, .menu__container__toggler>div:after{
+ content: '';
+position: absolute;
+ width: 100%;
+ height: 0.3rem;
+ border-radius: 0.15rem;
+ background: var(--collight);
+}
+.menu__container__toggler>div:before{
+ top: -1rem;
+ left: 0;
+}
+.menu__container__toggler>div:after{
+  top: 1rem;
+  left: 0;
+ }
+ 
+.togglercheck:checked+ .menu__container__toggler>div{
+ transform: rotate(135deg);
+} 
+.togglercheck:checked+.menu__container__toggler>div:before, .togglercheck:checked+.menu__container__toggler>div:after{
+ transform: rotate(90deg);
+ top: 0;
+}
+.togglercheck:checked~ .menu{
+ visibility: visible;
+}
+.menu{
+ position: fixed;
+ width: 100vw;
+ height: 100vh;
+ top: 0;
+ left: 0;
+ font-family: 'Dancing Script',
+   cursive;
+ visibility: hidden; 
+ transition: .3s;
+}
+.togglercheck:checked~ .menu>div {
+ transform: translate(-50%, -50%);
+}
+.menu>div{
+position: absolute;
+width: 180rem;
+height: 180rem;
+top: 50%;
+left: 50%;
+border-radius: 50%;
+transform: translate(-150%, -50%);
+background-color: var(--coldarkeropacity);
+display: flex;
+align-items: center;
+justify-content: center;
+transition: .7s;
+}
+.togglercheck:checked~ .menu>div>div {
+  opacity: 1;
+ } 
+.menu>div>div{
+  opacity: 0; 
+ width: 90vw;
+ height: 100vh;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ transition: .6s;
+}
+ .menu>div>div li{
+ list-style: none;
+}
+.menu>div>div li a{
+ text-decoration: none;
+ color: var(--collight);
+ font-size: 2.8rem;
+ font-weight: 600;
+ display: inline-block;
+margin: 1rem;
+
+
+}
+.menu>div>div li a:hover{
+ color: var(--text-light);
+} 
